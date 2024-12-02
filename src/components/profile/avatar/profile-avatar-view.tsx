@@ -1,8 +1,5 @@
-import { User } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { AvatarUpload } from './avatar-upload';
-import { cn } from '@/lib/utils';
-import { scaleIn } from '@/lib/animations';
 import type { Profile } from '@/types/supabase';
 
 interface ProfileAvatarViewProps {

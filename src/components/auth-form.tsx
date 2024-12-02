@@ -21,6 +21,12 @@ import {
   type SignUpFormData
 } from '@/lib/validators/auth';
 
+type FormData = {
+  email: string;
+  password: string;
+  confirmPassword?: string;
+}
+
 export function AuthForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);

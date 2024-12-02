@@ -92,8 +92,10 @@ export function DateRangeSelector({ dateRange, onDateRangeChange }: DateRangeSel
             initialFocus
             mode="range"
             defaultMonth={dateRange?.from}
-            selected={dateRange}
-            onSelect={onDateRangeChange}
+            selected={dateRange || undefined}
+            onSelect={(range: DateRange | undefined) => {
+              if (range) onDateRangeChange(range)
+            }}
             numberOfMonths={2}
             disabled={{ after: new Date() }}
           />

@@ -161,6 +161,7 @@ export async function getTournaments(userId?: string) {
 
   return data.map(tournament => ({
     id: tournament.id,
+    name: tournament.name || "Tournament",
     status: tournament.status,
     created_at: tournament.created_at,
     winner: tournament.winner ? {
@@ -202,4 +203,8 @@ function transformMatchesToRounds(matches: any[]): Tournament["rounds"] {
   })
 
   return Array.from(roundsMap.values()).map(matches => ({ matches }))
+}
+
+export interface TournamentRound {
+  matches: TournamentMatch[];
 }

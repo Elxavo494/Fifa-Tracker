@@ -1,4 +1,4 @@
-import { ArrowLeft, LogOut, User, Menu } from "lucide-react"
+import { LogOut, User, Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/mode-toggle"
 import { useAuth } from "@/contexts/auth-context"
@@ -7,7 +7,6 @@ import {
   SheetContent,
   SheetHeader,
   SheetTitle,
-  SheetDescription,
   SheetTrigger,
 } from "@/components/ui/sheet"
 
@@ -17,7 +16,7 @@ interface TournamentHeaderProps {
   onHomeClick: () => void
 }
 
-export function TournamentHeader({ onBack, onProfileClick, onHomeClick }: TournamentHeaderProps) {
+export function TournamentHeader({ onBack, onProfileClick }: TournamentHeaderProps) {
   const { signOut } = useAuth()
 
   return (
