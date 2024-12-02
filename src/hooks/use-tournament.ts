@@ -24,7 +24,10 @@ export function useTournament() {
   const loadTournaments = async () => {
     try {
       const data = await getTournaments()
-      setTournaments(data)
+      setTournaments(data.map(t => ({
+        ...t,
+        finalMatch: t.rounds[t.rounds.length - 1].matches[0]
+      })))
     } catch (error) {
       console.error("Error loading tournaments:", error)
       toast({

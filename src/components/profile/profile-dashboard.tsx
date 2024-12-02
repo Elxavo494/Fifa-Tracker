@@ -24,7 +24,7 @@ export function ProfileDashboard({ onBack, onTournamentClick }: ProfileDashboard
   const [stats, setStats] = useState<PlayerStats | null>(null);
   const { signOut } = useAuth();
   const { user } = useAuth();
-  const { achievements, validateAchievements } = useAchievements(user?.id || "", stats);
+  const { achievements, validateAchievements } = useAchievements(user?.id || "");
 
   useEffect(() => {
     if (profile && matches.length > 0) {
