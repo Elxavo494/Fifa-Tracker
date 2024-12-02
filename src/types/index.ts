@@ -38,3 +38,9 @@ export interface PlayerStats {
   consecutiveScoringGames: number;
   highestGoalDifference: number;
 }
+
+export interface Player {
+  id: string
+  name: string
+  avatarUrl?: string | null
+}

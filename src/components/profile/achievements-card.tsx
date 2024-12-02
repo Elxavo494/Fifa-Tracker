@@ -36,13 +36,6 @@ export function AchievementsCard({ achievements, className }: AchievementsCardPr
     legendary: 'from-yellow-500/10 via-background to-background border-yellow-500/50'
   };
 
-  const rarityTextColors = {
-    common: 'text-gray-500',
-    rare: 'text-blue-500',
-    epic: 'text-purple-500',
-    legendary: 'text-yellow-500'
-  };
-
   const filteredAchievements = ACHIEVEMENTS
     .filter(achievement => {
       const isUnlocked = achievements.find(a => a.achievement_id === achievement.id);
@@ -109,7 +102,6 @@ export function AchievementsCard({ achievements, className }: AchievementsCardPr
           {filteredAchievements.map((achievement, index) => {
             const unlocked = achievements.find(a => a.achievement_id === achievement.id);
             const unlockedDate = unlocked?.unlocked_at ? new Date(unlocked.unlocked_at) : null;
-            const rarityColor = rarityColors[achievement.rarity].replace('bg-', '');
 
             return (
               <div
@@ -182,22 +174,8 @@ export function AchievementsCard({ achievements, className }: AchievementsCardPr
                 <div className="flex-shrink-0 text-xl md:text-2xl">{achievement.icon}</div>
                 <div className="flex-1 space-y-1">
                   <div className="flex items-center gap-2">
-                    <h4 className="text-sm md:text-base font-medium">{achievement.name}</h4>
-                    {/* <Badge
-                      variant="secondary"
-                      className={cn(
-                        'text-[10px]',
-                        rarityColors[achievement.rarity]
-                      )}
-                    >
-                      {achievement.rarity}
-                    </Badge> */}
+                    <h4 className="text-sm md:text-base font-medium">{achievement.name}</h4>        
                   </div>
-                  {/* {unlockedDate && (
-                    <p className="text-xs text-muted-foreground">
-                      Unlocked on {unlockedDate.toLocaleDateString()}
-                    </p>
-                  )} */}
                 </div>
               </div>
             );
