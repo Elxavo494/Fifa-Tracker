@@ -4,7 +4,7 @@ import { ACHIEVEMENTS } from '@/lib/constants/achievements';
 import type { PlayerAchievement } from '@/types/achievement';
 import type { PlayerStats } from '@/types';
 
-export function useAchievements(userId: string, stats?: PlayerStats | null) {
+export function useAchievements(userId: string) {
   const [achievements, setAchievements] = useState<PlayerAchievement[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 

@@ -54,6 +54,9 @@ export function generateBracket(players: User[]): Tournament {
   return {
     id: crypto.randomUUID(),
     rounds,
-    finalMatch: rounds[rounds.length - 1].matches[0]
+    finalMatch: rounds[rounds.length - 1].matches[0],
+    status: 'ongoing',
+    created_at: new Date().toISOString(),
+    name: 'New Tournament'
   }
 }
