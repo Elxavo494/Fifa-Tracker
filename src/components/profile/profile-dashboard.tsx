@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { LogOut } from 'lucide-react';
 import { ProfileHeader } from './profile-header';
-import { ProfileStats } from './profile-stats';
 import { MatchGraph } from './match-graph';
 import { ProfileAvatar } from './profile-avatar';
 import { ProfileStatsTabs } from './stats/profile-stats-tabs';
@@ -66,7 +65,7 @@ export function ProfileDashboard({ onBack, onTournamentClick }: ProfileDashboard
     );
 
     sortedMatches.forEach((match) => {
-      const isTeam1 = match.team1.players.some((p) => p.id === profile.id);
+      const isTeam1 = match.team1.players.some((p: { id: string }) => p.id === profile.id);
       const myTeam = isTeam1 ? match.team1 : match.team2;
       const opposingTeam = isTeam1 ? match.team2 : match.team1;
 

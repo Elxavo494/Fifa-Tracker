@@ -14,7 +14,13 @@ export interface TournamentRound {
 
 export interface Tournament {
   id: string
-  status: "ongoing" | "completed"
+  status: 'ongoing' | 'completed'
+  created_at: string
+  name: string
   rounds: TournamentRound[]
-  winner?: User
+  winner?: {
+    id: string
+    name: string
+    avatarUrl?: string
+  }
 }

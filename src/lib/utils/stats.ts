@@ -17,7 +17,16 @@ export function calculatePlayerStats(matches: Match[], users: User[]): PlayerSta
       points: 0,
       goalsScored: 0,
       goalsConceded: 0,
-      cleanSheets: 0
+      cleanSheets: 0,
+      tournamentsWon: 0,
+      winStreak: 0,
+      maxWinStreak: 0,
+      highestGoalsInMatch: 0,
+      gamesPlayed: 0,
+      lowScoringWins: 0,
+      consecutiveScoringGames: 0,
+      perfectMonthAchieved: false,
+      highestGoalDifference: 0
     })
   })
 

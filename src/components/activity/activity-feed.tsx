@@ -1,4 +1,4 @@
-import { Trophy, Users, Medal, Star, Crown } from 'lucide-react'
+import { Trophy, Users, Star, Crown } from 'lucide-react'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 import { slideIn, scaleIn } from '@/lib/animations'

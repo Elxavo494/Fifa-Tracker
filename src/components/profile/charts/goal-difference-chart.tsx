@@ -30,7 +30,7 @@ export function GoalDifferenceChart({ data }: GoalDifferenceChartProps) {
           <YAxis {...axisStyle} />
           <Tooltip
             contentStyle={tooltipStyle}
-            formatter={(value: number) => [`${value > 0 ? '+' : ''}${value}`, 'Goal Difference']}
+            formatter={(value: number) => [value, "Goal Difference"]}
             labelFormatter={(date) => format(new Date(date), 'PPP')}
           />
           <Line

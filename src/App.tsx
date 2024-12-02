@@ -55,6 +55,7 @@ function MainApp() {
           setShowTournament(false)
           setShowProfile(true)
         }}
+        onHomeClick={() => setShowTournament(false)}
       />
     )
   }
