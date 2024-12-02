@@ -1,7 +1,7 @@
 import { Trophy, Users, Star, Crown } from 'lucide-react'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
-import { slideIn, scaleIn } from '@/lib/animations'
+import { scaleIn } from '@/lib/animations'
 import { ACHIEVEMENTS } from '@/lib/constants/achievements'
 import type { Match } from '@/types'
 import type { PlayerAchievement } from '@/types/achievement'

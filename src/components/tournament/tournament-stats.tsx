@@ -1,9 +1,7 @@
-import { Trophy, Goal, TrendingUp, Users, Crown } from "lucide-react"
+import { Trophy, Goal, TrendingUp, Crown } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import type { Tournament } from "@/types/tournament"
-import { cn } from "@/lib/utils"
-import { fadeIn } from "@/lib/animations"
 
 interface TournamentStatsProps {
   tournaments: Tournament[]

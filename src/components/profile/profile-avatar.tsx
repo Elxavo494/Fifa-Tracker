@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Pencil, Mail, Lock } from 'lucide-react';
+import { Mail, Lock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/components/ui/use-toast';
@@ -8,7 +8,7 @@ import { PasswordForm } from './password/password-form';
 import { useProfile } from '@/hooks/use-profile';
 import { useAuth } from '@/contexts/auth-context';
 import { cn } from '@/lib/utils';
-import { fadeIn, slideIn, scaleIn } from '@/lib/animations';
+import { fadeIn } from '@/lib/animations';
 
 export function ProfileAvatar() {
   const [isEditing, setIsEditing] = useState(false);
