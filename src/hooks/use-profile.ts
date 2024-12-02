@@ -2,11 +2,15 @@ import { useState, useEffect } from "react"
 import { supabase } from "@/lib/supabase"
 import { useAuth } from "@/contexts/auth-context"
 import type { Database } from "@/types/supabase"
+import { uploadFile } from "@/lib/storage"
+import { deleteOldAvatar } from "@/lib/storage"
+import { compressImage } from "@/lib/image"
 
 type Profile = Database["public"]["Tables"]["profiles"]["Row"]
 
 interface UpdateProfileData {
   username?: string
+  avatarFile?: File
   avatarUrl?: string | null
 }
 
@@ -64,7 +68,7 @@ export function useProfile() {
     }
   }, [user])
 
-  const updateProfile = async ({ username, avatarUrl }: UpdateProfileData) => {
+  const updateProfile = async ({ username, avatarFile, avatarUrl }: UpdateProfileData) => {
     try {
       if (!user) throw new Error("No user found")
 
@@ -76,7 +80,18 @@ export function useProfile() {
         updates.username = username
       }
 
-      if (avatarUrl !== undefined) {
+      if (avatarFile) {
+        const compressedFile = await compressImage(avatarFile)
+        const fileExt = avatarFile.name.split(".").pop()
+        const filePath = `${user.id}/${Date.now()}.${fileExt}`
+
+        if (profile?.avatar_url) {
+          await deleteOldAvatar(user.id, profile.avatar_url)
+        }
+
+        const newAvatarUrl = await uploadFile("avatars", filePath, compressedFile)
+        updates.avatar_url = newAvatarUrl
+      } else if (avatarUrl !== undefined) {
         updates.avatar_url = avatarUrl
       }
 
@@ -87,7 +102,6 @@ export function useProfile() {
 
       if (updateError) throw updateError
 
-      // Refresh both local and global profile state
       const { data: newProfile } = await supabase
         .from("profiles")
         .select("*")
@@ -96,7 +110,7 @@ export function useProfile() {
 
       if (newProfile) {
         setProfile(newProfile)
-        await refreshProfile() // Update the global profile state
+        await refreshProfile()
       }
 
       return { error: null }

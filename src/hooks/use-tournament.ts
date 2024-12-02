@@ -23,8 +23,8 @@ export function useTournament() {
 
   const loadTournaments = async () => {
     try {
-      const data = await getTournaments(user?.id)
-      setTournaments(data)
+      const data = await getTournaments()
+      setTournaments(data.filter(t => t.id === user!.id))
     } catch (error) {
       console.error("Error loading tournaments:", error)
       toast({

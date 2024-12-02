@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 import { ACHIEVEMENTS } from '@/lib/constants/achievements';
-import type { PlayerAchievement, Achievement } from '@/types/achievement';
+import type { PlayerAchievement } from '@/types/achievement';
 import type { PlayerStats } from '@/types';
 
 export function useAchievements(userId: string, stats?: PlayerStats | null) {

@@ -23,4 +23,5 @@ export interface Tournament {
     name: string
     avatarUrl?: string
   }
+  finalMatch: TournamentMatch
 }
