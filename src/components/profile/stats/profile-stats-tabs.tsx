@@ -7,7 +7,6 @@ import {
 import { ProfileStats } from "../profile-stats"
 import { calculateWeeklyStats } from "@/lib/utils/stats"
 import type { Match } from "@/types"
-import { Flame, TrendingUp } from "lucide-react"
 import { calculateStreaks } from "@/lib/utils/stats"
 import { cn } from "@/lib/utils"
 

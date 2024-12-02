@@ -8,7 +8,7 @@ import { useProfile } from '@/hooks/use-profile';
 import { useMatches } from '@/hooks/use-matches';
 import { useAuth } from '@/contexts/auth-context';
 import { Button } from '@/components/ui/button';
-import type { PlayerStats } from '@/types';
+import type { PlayerStats, Match } from '@/types';
 import { AchievementsCard } from './achievements-card';
 import { useAchievements } from '@/hooks/use-achievements';
 import { supabase } from '@/lib/supabase';
@@ -106,7 +106,7 @@ export function ProfileDashboard({ onBack, onTournamentClick }: ProfileDashboard
     
     // Sort matches by date ascending for proper streak calculation
     sortedMatches.forEach(match => {
-      const isTeam1 = match.team1.players.some(p => p.id === profile.id);
+      const isTeam1 = match.team1.players.some((p: { id: string }) => p.id === profile.id)
       const myTeam = isTeam1 ? match.team1 : match.team2;
       
       if (myTeam.score > 0) {
