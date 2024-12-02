@@ -1,5 +1,4 @@
 import type { Achievement } from '@/types/achievement';
-import type { Match } from '@/types/match';
 
 export const ACHIEVEMENTS: Achievement[] = [
   {
@@ -113,14 +112,6 @@ export const ACHIEVEMENTS: Achievement[] = [
     icon: '🛡️',
     rarity: 'epic',
     condition: (stats) => stats.lowScoringWins >= 5
-  },
-  {
-    id: 'hat_trick_hero',
-    name: 'Hat-Trick Hero',
-    description: 'Score 3 goals in a single match',
-    icon: '🎩',
-    rarity: 'rare',
-    condition: (stats) => stats.hatTricks > 0
   },
   {
     id: 'veteran',
