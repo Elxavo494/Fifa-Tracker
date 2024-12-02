@@ -43,7 +43,8 @@ export function ProfileAvatar() {
         title: 'Success',
         description: 'Username updated successfully',
       });
-    } catch (error) {
+    } catch (error: unknown) {
+      console.error('Failed to update username:', error);
       toast({
         title: 'Error',
         description: 'Failed to update username',
@@ -56,7 +57,11 @@ export function ProfileAvatar() {
     <div className={cn('rounded-lg border bg-card p-6', fadeIn)}>
       <div className="flex items-start gap-6">
         <ProfileAvatarView
-          profile={profile}
+          profile={{
+            ...profile,
+            username: profile.username || '',
+            avatar_url: profile.avatar_url || undefined,
+          }}
           onAvatarUpdate={handleAvatarUpdate}
         />
         <div className="flex-1 space-y-4">

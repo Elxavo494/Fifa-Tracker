@@ -8,7 +8,6 @@ import {
 } from 'recharts'
 import { format } from 'date-fns'
 import { axisStyle, tooltipStyle, lineConfig } from './chart-config'
-import type { Match } from '@/types'
 
 interface GoalDifferenceChartProps {
   data: Array<{

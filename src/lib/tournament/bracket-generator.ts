@@ -1,5 +1,5 @@
 import { shuffle } from "@/lib/utils"
-import type { Tournament, TournamentMatch } from "@/types/tournament"
+import type { Tournament, TournamentMatch, TournamentRound } from "@/types/tournament"
 import type { User } from "@/types"
 
 function generateEmptyMatch(): TournamentMatch {

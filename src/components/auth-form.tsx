@@ -21,12 +21,6 @@ import {
   type SignUpFormData
 } from '@/lib/validators/auth';
 
-type FormData = {
-  email: string;
-  password: string;
-  confirmPassword?: string;
-}
-
 export function AuthForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
@@ -179,7 +173,7 @@ export function AuthForm() {
                       placeholder="••••••••"
                       type="password"
                       autoComplete="new-password"
-                      className={form.formState.errors.confirmPassword ? "border-destructive" : ""}
+                      className={form.formState.errors.password ? "border-destructive" : ""}
                       {...field}
                     />
                   </FormControl>

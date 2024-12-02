@@ -17,7 +17,6 @@ import {
   lineConfig,
   chartColors,
 } from './charts/chart-config';
-import { scaleIn } from '@/lib/animations';
 import type { Match } from '@/types';
 import type { DateRange } from 'react-day-picker';
 
@@ -50,7 +49,7 @@ export function MatchGraph({ matches, userId }: MatchGraphProps) {
             margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
           >
             <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
-            <XAxis
+          <XAxis
               dataKey="date"
               tick={{ ...axisStyle }}
               axisLine={{ stroke: 'currentColor' }}

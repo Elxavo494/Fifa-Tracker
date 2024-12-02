@@ -1,6 +1,5 @@
 import { supabase } from "@/lib/supabase"
 import type { Tournament, TournamentMatch } from "@/types/tournament"
-import type { User } from "@/types"
 
 export async function createTournament(
   tournament: Tournament,
@@ -134,7 +133,7 @@ export async function completeTournament(
   if (error) throw error
 }
 
-export async function getTournaments(userId?: string) {
+export async function getTournaments() {
   const query = supabase
     .from("tournaments")
     .select(`

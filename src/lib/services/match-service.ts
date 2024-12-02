@@ -10,7 +10,7 @@ function mapProfileToUser(profile: any): User {
 }
 
 export async function createMatch(match: Match, userId: string) {
-  const { data: matchData, error: matchError } = await supabase
+  const { error: matchError } = await supabase
     .from("matches")
     .insert({
       id: match.id,

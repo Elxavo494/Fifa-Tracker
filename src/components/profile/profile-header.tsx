@@ -1,4 +1,4 @@
-import { ArrowLeft, Trophy, Menu, User, LogOut } from "lucide-react"
+import { Trophy, Menu, User, LogOut } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/mode-toggle"
 import { useAuth } from '@/contexts/auth-context';
@@ -7,7 +7,6 @@ import {
   SheetContent,
   SheetHeader,
   SheetTitle,
-  SheetDescription,
   SheetTrigger,
 } from "@/components/ui/sheet"
 

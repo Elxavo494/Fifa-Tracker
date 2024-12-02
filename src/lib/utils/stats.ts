@@ -86,7 +86,7 @@ interface StreakStats {
   bestLoseStreak: number
 }
 
-export function calculateStreaks(matches: Match[], userId: string) {
+export function calculateStreaks(matches: Match[], userId: string): StreakStats {
   // Sort matches by date in ascending order
   const sortedMatches = [...matches].sort((a, b) => 
     new Date(a.date).getTime() - new Date(b.date).getTime()
@@ -94,7 +94,7 @@ export function calculateStreaks(matches: Match[], userId: string) {
 
   let currentStreak = 0
   let bestStreak = 0
-  let isWinning = true
+  const isWinning = true
 
   // Iterate through matches in reverse (most recent first)
   for (let i = sortedMatches.length - 1; i >= 0; i--) {
@@ -127,7 +127,7 @@ export function calculateStreaks(matches: Match[], userId: string) {
     currentType: isWinning ? 'win' : 'loss',
     bestWinStreak: bestStreak,
     bestLoseStreak: bestStreak
-  }
+  } as StreakStats
 }
 
 export function calculateGoalDifferenceTrend(matches: Match[], userId: string) {

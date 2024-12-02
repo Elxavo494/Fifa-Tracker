@@ -1,12 +1,12 @@
 import type { Tournament, TournamentMatch } from "@/types/tournament"
 
-function findMatchById(tournament: Tournament, matchId: string): TournamentMatch | null {
-  for (const round of tournament.rounds) {
-    const match = round.matches.find(m => m.id === matchId)
-    if (match) return match
-  }
-  return null
-}
+// function findMatchById(tournament: Tournament, matchId: string): TournamentMatch | null {
+//   for (const round of tournament.rounds) {
+//     const match = round.matches.find(m => m.id === matchId)
+//     if (match) return match
+//   }
+//   return null
+// }
 
 function findNextMatch(tournament: Tournament, currentRoundIndex: number, matchIndex: number): TournamentMatch | null {
   if (currentRoundIndex >= tournament.rounds.length - 1) return null

@@ -26,7 +26,7 @@ function PlayerList({ players }: { players: Match["team1"]["players"] }) {
   return (
     <div className="flex items-center justify-center gap-2">
       <div className="flex -space-x-2">
-        {players.map((player, i) => (
+        {players.map((player) => (
           <Avatar key={player.id} className="h-6 w-6 border-2 border-background">
             <AvatarImage src={player.avatarUrl || ""} />
             <AvatarFallback>
